@@ -1,46 +1,31 @@
 import * as React from "react"
-import { Link, HeadFC } from "gatsby"
+import { HeadFC, navigate } from "gatsby"
+import Layout from "../Components/Layout"
+import { getTextAsBig } from "../Utility/getTextAsBig"
+import * as terminalStyles from "../styles/asciitext.module.css";
+import * as notFoundStyles from "../styles/notfound.module.css";
 
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
 
 const NotFoundPage = () => {
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry 😔, we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
+    <Layout>
+    <div style={{display: "flex",paddingTop: "5rem", flexDirection: "column", alignItems: "center", justifyItems: "center"}}>
+    <pre className={terminalStyles.ascii}>
+    {getTextAsBig("PAGE")}
+    </pre>
+    <pre className={terminalStyles.ascii} style={{animationDelay: "0.5s"}}>
+    {getTextAsBig("NOT")}
+    </pre>
+    <pre className={terminalStyles.ascii}  style={{animationDelay: "1s"}}>
+    {getTextAsBig("FOUND")}
+    </pre>
+    <div>
+    <button onClick={()=>{navigate(-1)}} className={notFoundStyles.buttonStyle}> <pre className={terminalStyles.ascii}  style={{animationDelay: "2s", color: "green", textDecoration: "none"}}>
+    {getTextAsBig("Go Back")}
+    </pre></button>
+    </div>
+    </div>
+    </Layout>
   )
 }
 

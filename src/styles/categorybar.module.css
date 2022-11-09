@@ -1,0 +1,43 @@
+
+.categoryScrollDiv{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+    width: 100%;
+    overflow-x: auto;
+    justify-content: flex-start;
+    align-items: flex-end;
+    scrollbar-width: thin;
+
+}
+
+
+.categoryTab{
+    width: 5rem;
+    height: 3rem;
+    background-color: transparent;
+    color: white;
+    margin-left: 15px;
+    flex-shrink: 0;
+    border: 3px dashed white;
+}
+
+.categoryTab:hover{
+border: 3px dashed grey;
+cursor: pointer;
+
+}
+
+
+.categoryTabActivated{
+    width: 5rem;
+    height: 3.5rem;
+    background-color: transparent;
+    color: white;
+    margin-left: 15px;
+    flex-shrink: 0;
+    border: 4px dashed white;
+    font-weight: bold;
+
+}

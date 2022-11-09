@@ -1,0 +1,43 @@
+
+.displayBox{
+    width: 300px;
+    height: 300px;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    padding: 0;
+    cursor: pointer;
+    border: 2px dashed white;
+    background-color: black;
+}
+
+.displayBox:hover{
+    border: 2px dashed grey;
+}
+
+
+.divider{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-evenly;
+}
+
+.title{
+    color: white;
+    font-size: 16px;
+}
+
+@media (max-width: 640px){
+
+   
+
+    .displayBox{
+        margin-left: 0;    
+    }
+
+
+}

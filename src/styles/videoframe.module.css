@@ -1,0 +1,13 @@
+
+.videoFrame{
+    height: 25rem;
+}
+
+
+@media (max-width: 720px)
+{
+    .videoFrame{
+        height: 10rem;
+    }
+    
+}

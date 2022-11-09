@@ -1,0 +1,55 @@
+
+.rootDiv{
+padding: 0;
+margin: 0;
+display: flex;
+flex-direction: column;
+overflow: hidden;
+
+}
+
+.innerDiv{
+    position: absolute;
+    top: 5rem;
+    padding-left: 3rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    max-height: 90%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    
+}
+
+.contentDiv{
+  max-width: 50rem;
+}
+
+.contentText
+{
+    color: white;
+    font-size: 18px;
+}
+
+@media (max-width: 640px){
+
+    .innerDiv{
+        top: 10%;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        max-width: 100%;
+        max-height: 80%;        
+    }
+}
+
+@media (min-width: 1920px){
+
+.innerDiv{
+padding-left: 30rem;
+
+}
+
+}
+
+

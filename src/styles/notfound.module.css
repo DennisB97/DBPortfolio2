@@ -1,0 +1,19 @@
+
+.linkStyle{
+color:green;
+text-decoration: none;
+}
+
+.linkStyle:visited{
+    color: green;
+    text-decoration: none;
+}
+
+.buttonStyle{
+    background-color: transparent;
+    border: none;
+}
+
+.buttonStyle:hover{
+    border: 5px dashed green;
+}

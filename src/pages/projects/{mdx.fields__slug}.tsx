@@ -1,22 +1,25 @@
 // Copyright 2022 Dennis Baeckstroem 
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, HeadFC} from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { Link } from "gatsby"
 import Layout from "../../Components/Layout";
 import TerminalLayout from "../../Components/2D/TerminalLayout";
-import { HeadFC } from "gatsby"
 import GradualText from "../../Components/2D/GradualText";
 import AsciiText from "../../Components/2D/AsciiText";
 import VideoFrame from "../../Components/2D/VideoFrame";
 
+// The shortcodes are components that are forwarded to the markdown files
 const shortcodes = { Link, GradualText,AsciiText,VideoFrame,
   p: (props : any)  => <p {...props} style={{color: "white", fontFamily: "Roboto Slab"}} />
 } 
 
-// Project is a dynamic page component
-// Shows the mdx file contnet as a project page for each project
-const Project = ({ data, children } : any) => {
+/**
+ * Project component is a template for dynamically creating pages out of the mdx files inside projects folder.
+ * Uses same layouts as the manually created pages, and then puts the body content of mdx files into children of the terminallayout.
+ * @param param children props from the mdx query given to be rendered within the terminallayout component.
+ */
+const Project = ({children } : any) => {
 
   return(
     <Layout>
@@ -43,7 +46,6 @@ export const query = graphql`
         videoSrcURL
         videoTitle
       }
-      body
     }
    } `
 

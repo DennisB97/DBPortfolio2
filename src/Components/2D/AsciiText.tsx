@@ -1,28 +1,27 @@
-import * as React from "react";
+import React, {ReactNode} from "react";
 import {getTextAsBig} from "../../Utility/getTextAsBig";
 import * as styles from "../../styles/asciitext.module.css"
 
-interface asciiTextProps{
-    children: any;
-    styling?: any;
+type AsciiTextProps = {
+    children: ReactNode;
+    styling?: React.CSSProperties;
     bClassStyling?: boolean;
     bAnimated?: boolean;
 }
 
-const AsciiText = (props : asciiTextProps) => {
+/**
+ * AsciiText renders text inside pre and the text is made into figlet Big font with figlet library. 
+ * @param props are  mostly optional styling values, but children is used for the text to be rendered. 
+ */
+const AsciiText = ({children,styling,bAnimated = false,bClassStyling = false} : AsciiTextProps) => {
 
     return(
-        <pre className={props.bClassStyling ? (props.bAnimated ? styles.asciiAnimated : styles.ascii) : ""} style={props.styling}>
-        {typeof props.children === "string" ? getTextAsBig(props.children) : null}
+        <pre className={bClassStyling ? (bAnimated ? styles.asciiAnimated : styles.ascii) : ""} style={styling}>
+        {typeof children === "string" ? getTextAsBig(children) : null}
         </pre>
     )
 
 
-}
-
-AsciiText.defaultProps = {
-    bAnimated: false,
-    bClassStyling: false
 }
 
 export default AsciiText;

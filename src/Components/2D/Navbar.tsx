@@ -1,14 +1,18 @@
-import * as React from "react";
+import React from "react";
 import{Link} from "gatsby";
 import * as styles from "../../styles/navbar.module.css"
 
 
 
-interface navBarProps{
+type navBarProps = {
 listObjects: ListObjects;
 }
 
-
+/**
+ * This component handles rendering a list of navigational links to within this website, since using the Gatsby's Link component
+ * @param props Takes in ListObjects which is an array of name and page route for Gatsby Link component,
+ * and optionally css styling
+ */
 const Navbar = (props : navBarProps) => {
 
     const objectList = props.listObjects.map((data) => 

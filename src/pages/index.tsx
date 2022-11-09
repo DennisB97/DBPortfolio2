@@ -1,6 +1,5 @@
 import React from "react"
 import type { HeadFC } from "gatsby"
-import * as styles from "../styles/index.module.css";
 import Layout from "../Components/Layout";
 import TerminalLayout from "../Components/2D/TerminalLayout";
 import PromptBox from "../Components/PromtBox";
@@ -10,7 +9,7 @@ import { navigate } from "gatsby"
 
   const IndexPage = () => {
 
-   function changePage(buttonID: number) : any{
+   function changePage(buttonID: number) : void{
       let toPage : string = (buttonID === 0) ? `/2DHome/` : `/3DHome/`;
       navigate(toPage);
     }

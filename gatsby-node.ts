@@ -13,3 +13,13 @@ exports.onCreateNode = ({ node, getNode, actions: { createNodeField } } : any) =
     });
   }
 };
+
+
+const pathsToIgnore = ['/3DHome/']
+exports.onCreatePage = ({ page, actions: { deletePage }} : any) => {
+  if (process.env.NODE_ENV === 'development') return
+
+  if (pathsToIgnore.includes(page.path)) {
+    deletePage(page)
+  }
+}

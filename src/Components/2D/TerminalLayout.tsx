@@ -1,14 +1,12 @@
-import * as React from "react";
-import {ReactNode, useEffect, useState} from "react";
+import React,  {ReactNode, useEffect, useState}  from "react";
 import * as styles from "../../styles/terminallayout.module.css";
 import Navbar from "./Navbar";
-import {getTextAsBig} from "../../Utility/getTextAsBig";
 import {format} from 'date-fns';
 import GradualText from "./GradualText";
 import AsciiText from "./AsciiText";
 
 
-interface childProps{
+type childProps = {
 contentText?: string;
 contentTextInitialDelay?: number;
 contentTextWordSpeed?: number;
@@ -20,13 +18,27 @@ children?: ReactNode;
 bAnimatedPreAscii?: boolean;
 }
 
-
-const TerminalLayout = ({listObjects, contentText,contentTextInitialDelay,contentTextWordSpeed,asciiPreText,asciiPreTextDetail,bAsciiClock,children,bAnimatedPreAscii} : childProps) => {
+/**
+ * This component acts as a second layout for the inner content within layout component. 
+ * This component provides optional ascii text and clock at top, also a navbar. 
+ * And a infinite scrolling content div for text or other misc stuff.
+ * @param param most props are optional. 
+ * contentText can be used to utilize gradualtext component to render text given, together with the initialDelay and wordSpeed props to control it.
+ * ListObjects given to the navbar to show which links should be visible
+ */
+const TerminalLayout = ({listObjects, contentText,contentTextInitialDelay,contentTextWordSpeed,asciiPreText,asciiPreTextDetail,bAsciiClock = false,children,bAnimatedPreAscii = true} : childProps) => {
     const [time,setTime] = useState<number>(Date.now());
+    const [bGradualTextDone,setGradualTextDone] = useState<boolean>(false);
     var clock : number;
 
     useEffect(() => {
     
+      if(contentText === undefined)
+      {
+        setGradualTextDone(true);
+      }
+
+
         if(bAsciiClock === true)
       clock = window.setInterval(() => {
         setTime(Date.now);
@@ -38,12 +50,17 @@ const TerminalLayout = ({listObjects, contentText,contentTextInitialDelay,conten
     }, []);
 
 
+
     const navBar = (listObjects !== undefined) ? <Navbar listObjects={listObjects}></Navbar> : null;
-    const AsciiPre = (asciiPreText !== undefined) ? <AsciiText bClassStyling={true} bAnimated={true}>{asciiPreText}</AsciiText> : null;
+    const AsciiPre = (asciiPreText !== undefined) ? <AsciiText bClassStyling={true} bAnimated={bAnimatedPreAscii}>{asciiPreText}</AsciiText> : null;
     const AsciiPreDetail = (asciiPreTextDetail !== undefined) ? <AsciiText styling={{ animationDelay: "2s", animationIterationCount: "infinite"}} bClassStyling={true} bAnimated={true}>{asciiPreTextDetail}</AsciiText> : null;
     const asciiDate = (bAsciiClock) ? <AsciiText styling={{fontSize: "4px", color: "white"}} >{format(time,`EEEE  do  MMM yyyy`)}</AsciiText> : null;
     const asciiClock = (bAsciiClock) ? <AsciiText styling={{fontSize: "4px", color: "white"}} >{format(time,`HH:mm:ss`)}</AsciiText> : null;
+    const childContent = (bGradualTextDone) ? <>
+    {children}
 
+    </> : null;
+    
     return(
         <div className={styles.rootDiv}>
         <div className={styles.innerDiv}>
@@ -54,8 +71,8 @@ const TerminalLayout = ({listObjects, contentText,contentTextInitialDelay,conten
         {asciiDate}
         {asciiClock}
         <div className={styles.contentDiv}>
-        {contentText !== undefined ? <GradualText initialDelay={contentTextInitialDelay} wordSpeed={contentTextWordSpeed}>{contentText}</GradualText> : null}
-        {children}
+        {contentText !== undefined ? <GradualText setGradualTextDone={setGradualTextDone} initialDelay={contentTextInitialDelay} wordSpeed={contentTextWordSpeed}>{contentText}</GradualText> : null}
+        {childContent}
         </div>
         </div>
         {navBar}
@@ -63,10 +80,5 @@ const TerminalLayout = ({listObjects, contentText,contentTextInitialDelay,conten
 
         )
 }
-
-TerminalLayout.defaultProps = {
-    bAsciiClock: false,
-    bAnimatedPreAscii: true
-  }
 
 export default TerminalLayout

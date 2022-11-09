@@ -1,10 +1,9 @@
-import * as React from "react"
+import React from "react";
 import {useEffect,useRef} from "react";
 import {Engine,Scene, EngineOptions, SceneOptions} from "babylonjs";
 import styled from "styled-components"
 
-interface functionCalls
-{
+type functionCalls = {
 antialias?: boolean;
 adaptToDeviceRatio?: boolean;
 engineOptions?: EngineOptions;
@@ -21,7 +20,9 @@ const StyledCanvas = styled.canvas`
 `
 
 
-
+/**
+ * Just rendering a  cube now, work in progress.
+ */
 export default ({antialias,adaptToDeviceRatio,engineOptions,onRender,onSceneReady,...rest} : functionCalls,sceneOptions : SceneOptions) => {
     const reactCanvas = useRef(null);
 

@@ -2,6 +2,9 @@ import React from "react";
 import CategoryTab from "./CategoryTab";
 import * as styles from "../../styles/categorybar.module.css";
 
+/**
+ * All possible categories to sort by of the projects as string enum
+ */
 export enum ECategories
 {
     All = "All",
@@ -14,15 +17,18 @@ export enum ECategories
 }
 
 
-interface categoryProps{
+type CategoryProps = {
     currentCategory: ECategories;
     setCategory(category : ECategories): void;
-
 }
 
 
-
-export const CategoryBar = (props : categoryProps) => {
+/**
+ * This component renders all the categorytabs and gives them the appropriate props.
+ * @param props takes in ECategory of the current selected category,and the set function to change the category.
+ * Which are forwarded to the tab components.
+ */
+export const CategoryBar = (props : CategoryProps) => {
 
 return(
     <div className={styles.categoryScrollDiv}>

@@ -3,12 +3,18 @@ import { navigate } from "gatsby"
 import * as styles from "../../styles/projectdisplaybox.module.css"
 import { GatsbyImage, getImage, IGatsbyImageData  } from "gatsby-plugin-image"
 
-interface boxProps{
+type boxProps = {
     linkTo : string;
     imageData: IGatsbyImageData;
-    imageAlt: any;
+    imageAlt: string;
 }
 
+/**
+ * This component displays a box divided with a image and a text, image is shown with GatsbyImage component.
+ * It works as a button which routes to the project it displays.
+ * @param props imageData contains the image received from query from parent component, imageAlt is alt text for the image.
+ * linkTo contains the url to route to from gatsby's navigate function
+ */
 const ProjectDisplayBox = (props : boxProps) => {
 const image = getImage(props.imageData);
 

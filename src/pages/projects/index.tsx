@@ -1,17 +1,22 @@
-import * as React from "react"
-import { HeadFC } from "gatsby"
+import React , {useState} from "react";
+import {graphql, HeadFC } from "gatsby"
 import Layout from "../../Components/Layout";
 import TerminalLayout from "../../Components/2D/TerminalLayout";
 import ProjectDisplayBox from "../../Components/2D/ProjectDisplayBox";
 import { ECategories, CategoryBar } from "../../Components/2D/CategoryBar";
-import { graphql } from "gatsby"
 
 
 
 
-const TwoDProjectsPage = ({data,children} : any) => {
-    const [currentCategory,setCategory] = React.useState(ECategories.All);
+/**
+ * This component renders the project page, which contains the categorybar, and makes a list of all mdx files
+ * And makes a displaybox out of the projects which works as a button.
+ * @param param data prop is received from the mdx query and contains all the found mdx files.
+ */
+const TwoDProjectsPage = ({data} : any) => {
+    const [currentCategory,setCategory] = useState<ECategories>(ECategories.All);
 
+    // sort the projects according to category unless category is "All"
     var sortedProjects : any = [];
     data.allMdx.nodes.forEach((node : any) => {
       if(currentCategory === ECategories.All)
@@ -44,7 +49,6 @@ const TwoDProjectsPage = ({data,children} : any) => {
       </>
       }
       />
-
         </Layout>
     )
 }

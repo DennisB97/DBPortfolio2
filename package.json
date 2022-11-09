@@ -40,7 +40,6 @@
     "gatsby-remark-images": "^7.0.0",
     "gatsby-source-filesystem": "^5.0.0",
     "gatsby-transformer-sharp": "^5.0.0",
-    "gatsby-transformer-typescript-css-modules": "^1.0.14",
     "react": "^18.2.0",
     "react-addons-shallow-compare": "^15.6.3",
     "react-dom": "^18.1.0",

@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react";
 import { HeadFC, navigate } from "gatsby"
 import Layout from "../Components/Layout"
 import { getTextAsBig } from "../Utility/getTextAsBig"

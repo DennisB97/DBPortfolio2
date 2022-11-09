@@ -1,13 +1,15 @@
-import * as React from "react";
+import React from "react";
 import * as Styles from "../../styles/videoframe.module.css";
 
-interface videoFrameProps
-{
+type videoFrameProps = {
     videoSrcURL: string;
     videoTitle: string;
 }
 
-
+/**
+ * VideoFrame component renders an iframe that will be used for the project pages to show youtube clips.
+ * @param props takes in the video's src URL and a title
+ */
 const VideoFrame = (props : videoFrameProps) => {
 
     return(

@@ -1,8 +1,10 @@
-import * as React from "react";
-import { Link, HeadFC } from "gatsby";
+import React from "react";
+import { HeadFC } from "gatsby";
 import SceneComponent from "../Components/3D/SceneComponent";
 import { Scene,FreeCamera,Vector3,HemisphericLight,MeshBuilder } from "babylonjs";
 import Layout from "../Components/Layout";
+
+// Just a template @TODO: create a 3D version of portfolio website.
 
 let box : any;
 

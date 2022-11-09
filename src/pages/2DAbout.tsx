@@ -1,9 +1,11 @@
-import * as React from "react"
+import React from "react";
 import { HeadFC } from "gatsby"
 import Layout from "../Components/Layout";
 import TerminalLayout from "../Components/2D/TerminalLayout";
 
-
+/**
+ * This component handles the about page, which just gives some text into terminallayout's text props
+ */
 const TwoDAboutPage = () => {
 
     return (

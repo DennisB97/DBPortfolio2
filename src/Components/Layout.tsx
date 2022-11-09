@@ -1,8 +1,6 @@
-import * as React from "react";
-import {ReactNode} from "react";
+import React,  {ReactNode} from "react";
 import * as styles from "../styles/layout.module.css";
 import {createGlobalStyle} from "styled-components";
-import styled from "styled-components"
 
 
 const Global = createGlobalStyle`
@@ -18,20 +16,20 @@ body,
     box-sizing: border-box;
 }
 `
-const RootDiv = styled.div`
-  height: 100%;
-  width: 100%;
-  position: relative;
-`
 
-interface LayoutProps {
+type LayoutProps = {
     children: ReactNode
   }
 
+
+  /**
+   * This component is the main outer layout for all 2D pages, contains a border that wraps around whole screen.  
+   * @param param Forwards all children into a inner body div.
+   */
 const LayoutPage  = ({children} : LayoutProps) =>{
 
 return(
-  <RootDiv>
+  <div className={styles.rootDiv}>
 <Global/>
 <div className={styles.mainBorder}>
 <div className={styles.mainBorderDetail}/>
@@ -42,7 +40,7 @@ return(
 {children}
 </div>
 </div>
-</RootDiv>
+</div>
 )
 }
 

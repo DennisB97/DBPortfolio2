@@ -1,18 +1,23 @@
-import * as React from "react";
+import React, {ReactNode} from "react";
 import * as styles from "../styles/promptbox.module.css";
 
-interface childProps{
+type childProps = {
 descriptionText : string;
 buttonOneText : string;
 buttonTwoText : string;
-descriptionTextStyling?: any;
-buttonOneTextStyling?: any;
-buttonTwoTextStyling?: any;
-buttonOneClickFunction?(...args: any[]): any;
-buttonTwoClickFunction?(...args: any[]): any;
+descriptionTextStyling?: React.CSSProperties;
+buttonOneTextStyling?: React.CSSProperties;
+buttonTwoTextStyling?: React.CSSProperties;
+buttonOneClickFunction?(buttonID: number, ...args: ReactNode[]): void;
+buttonTwoClickFunction?(buttonID: number, ...args: ReactNode[]): void;
 }
 
-
+/**
+ * This component renders a promptbox with two buttons, and a question text.
+ * @param param descriptionText gives the request and cause of the prompt, buttonone and two text shows what the buttons do.
+ * optional styling props for each text.
+ * and two functions given for each button to execute.
+ */
 const PromptBox = ({descriptionText,descriptionTextStyling,buttonOneTextStyling,buttonOneClickFunction,buttonTwoTextStyling,buttonTwoClickFunction,buttonOneText,buttonTwoText} : childProps) => {
 return(
     <div className={styles.rootDiv}>

@@ -31,7 +31,6 @@
     "date-fns": "^2.29.3",
     "figlet": "^1.5.2",
     "gatsby": "^5.0.0",
-    "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-image": "^3.0.0",
     "gatsby-plugin-manifest": "^5.0.0",
     "gatsby-plugin-mdx": "^5.0.0",

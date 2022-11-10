@@ -72,7 +72,7 @@ query MyQuery {
             gatsbyImageData(
               placeholder: BLURRED
               quality: 90
-              formats: [AUTO, WEBP, AVIF]
+              formats: [WEBP, AVIF]
               blurredOptions: {width: 100}
               layout: FULL_WIDTH
             )

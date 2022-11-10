@@ -50,19 +50,6 @@ const config: GatsbyConfig = {
     },
    __key: "projects"
    },
-  {
-    resolve: `gatsby-omni-font-loader`,
-    options: {
-      enableListener: true,
-      preconnect: [`https://fonts.googleapis.com`,`https://fonts.gstatic.com`],
-      web: [
-        {
-          name: `Roboto Slab`,
-          file: `https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap`,
-        },
-      ],
-    },
-  },
 ],
 trailingSlash: "always",
 };

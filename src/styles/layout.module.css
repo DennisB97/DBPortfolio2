@@ -49,7 +49,7 @@ border: 150px solid transparent;
 overflow:hidden;
 padding:0px;
 margin:0px;
-border-image: url(../images/CRT.png) 35% stretch;
+border-image: url(../images/CRT.webp) 35% stretch;
 box-sizing: border-box;
 position: fixed;
 z-index: 1000;

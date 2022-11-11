@@ -1,8 +1,9 @@
 import * as React from "react";
 
 
-export const onRenderBody = ({ setHeadComponents }) => {
-    setHeadComponents([
+export const onRenderBody = ({ setHeadComponents, setHtmlAttributes }) => {
+  setHtmlAttributes({lang: "en"});
+  setHeadComponents([
       <link
         rel="preload"
         href="/fonts/RobotoSlab-VariableFont_wght.ttf"
@@ -11,5 +12,5 @@ export const onRenderBody = ({ setHeadComponents }) => {
         crossOrigin="anonymous"
         key="robotoslab"
       />,
-    ])
+    ]);
   }

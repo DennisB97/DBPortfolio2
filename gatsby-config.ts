@@ -62,6 +62,12 @@ const config: GatsbyConfig = {
       icon: `src/images/favicon.png`
     },
    },
+   {
+    resolve: `gatsby-plugin-offline`,
+    options: {
+      precachePages: [`/`,`2dabout/`,`/2dhome/`,`/projects/*`],
+    }
+   }
 ],
 trailingSlash: "always",
 };

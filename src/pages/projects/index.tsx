@@ -41,6 +41,7 @@ const TwoDProjectsPage = ({data} : any) => {
       <CategoryBar currentCategory={currentCategory} setCategory={setCategory}></CategoryBar>
       {sortedProjects.map((node : any) => (
           <ProjectDisplayBox
+          key={node.frontmatter.projectName}
           linkTo={node.fields.slug}
           imageData={node.frontmatter.thumbnailImage}
           imageAlt={node.frontmatter.projectName}

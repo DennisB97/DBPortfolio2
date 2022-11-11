@@ -12,4 +12,10 @@
   html,body,#___gatsby,
   #gatsby-focus-wrapper{
     font-family: 'Roboto Slab';
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow:hidden;
+    box-sizing: border-box;
+    background-color: black;
   }

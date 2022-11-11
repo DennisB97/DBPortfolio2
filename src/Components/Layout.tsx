@@ -13,6 +13,7 @@ body,
     height: 100%;
     overflow:hidden;
     box-sizing: border-box;
+    background-color: black;
 }
 `
 

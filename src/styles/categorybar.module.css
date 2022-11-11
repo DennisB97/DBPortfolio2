@@ -14,8 +14,8 @@
 
 
 .categoryTab{
-    width: 5rem;
-    height: 3rem;
+    width: 6rem;
+    height: 4rem;
     background-color: transparent;
     color: white;
     margin-left: 15px;
@@ -26,13 +26,14 @@
 .categoryTab:hover{
 border: 3px dashed grey;
 cursor: pointer;
+color: #0d6efd;
 
 }
 
 
 .categoryTabActivated{
-    width: 5rem;
-    height: 3.5rem;
+    width: 6.5rem;
+    height: 4.5rem;
     background-color: transparent;
     color: white;
     margin-left: 15px;

@@ -90,7 +90,7 @@ color: white;
 max-width: 150px;
 max-height: 250px;
 min-height: 30px;
-white-space: pre-wrap;
+white-space: normal;
 }
 
 .button:hover{
@@ -136,7 +136,9 @@ white-space: pre-wrap;
         .button{
             margin-right: 0.8rem;
             margin-left: 0.8rem;
+            font-size: 12px;
         }
 
+        
 
         }

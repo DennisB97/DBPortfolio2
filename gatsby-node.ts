@@ -24,15 +24,13 @@ exports.onCreatePage = ({ page, actions: { deletePage, createPage }} : any) => {
     ...page,
     context: {
       ...page.context,
-      imageFolder: "projectimages/" + page.context.fields__slug,
+      imageFolder: (page.context.hasOwnProperty('fields__slug')) ? "projectimages/" + page.context.fields__slug : "",
     },
   });
 
-  console.log(page);
-
   if (process.env.NODE_ENV === 'development') return
   
-  if (pathsToIgnore.includes(page.fields.slug)) {
+  if (pathsToIgnore.includes(page.path)) {
     deletePage(page)
   }
 }

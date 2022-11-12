@@ -1,8 +1,8 @@
 import Carousel from 'react-bootstrap/Carousel'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import { GatsbyImage,IGatsbyImageData,getImage  } from "gatsby-plugin-image"
-import { ImageObjects, ImageObject } from "../../interfaces/picturedata.interface";
+import { GatsbyImage} from "gatsby-plugin-image"
+import { ImageObjects} from "../../interfaces/picturedata.interface";
 
 type CarouselProps = {
     images: ImageObjects

@@ -66,7 +66,6 @@ query MyQuery {
       }
       frontmatter {
         category
-        importance
         projectName
         thumbnailImage {
           childImageSharp {

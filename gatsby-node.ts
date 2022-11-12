@@ -16,10 +16,23 @@ exports.onCreateNode = ({ node, getNode, actions: { createNodeField } } : any) =
 
 
 const pathsToIgnore = ['/3DHome/']
-exports.onCreatePage = ({ page, actions: { deletePage }} : any) => {
-  if (process.env.NODE_ENV === 'development') return
+exports.onCreatePage = ({ page, actions: { deletePage, createPage }} : any) => {
 
-  if (pathsToIgnore.includes(page.path)) {
+  deletePage(page);
+
+  createPage({
+    ...page,
+    context: {
+      ...page.context,
+      imageFolder: "projectimages/" + page.context.fields__slug,
+    },
+  });
+
+  console.log(page);
+
+  if (process.env.NODE_ENV === 'development') return
+  
+  if (pathsToIgnore.includes(page.fields.slug)) {
     deletePage(page)
   }
 }

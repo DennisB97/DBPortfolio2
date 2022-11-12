@@ -51,6 +51,12 @@ const config: GatsbyConfig = {
    __key: "projects"
    },
    {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name:  `projectImages`,
+      path: `${__dirname}/src/images/projectimages`,
+    },},
+   {
     resolve: `gatsby-plugin-manifest`,
     options: {
       name: `GatsbyJS`,

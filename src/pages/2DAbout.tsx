@@ -14,8 +14,6 @@ const TwoDAboutPage = ({data} : any) => {
     var carouselData : ImageObjects = new Array;
     data.allFile.edges.forEach(({node} : any)  => {
       let data : ImageObject = {id: node.id,altText: node.base,imageData: node.childImageSharp.gatsbyImageData};
-      console.log(node.id);
-      console.log(node.base);
       carouselData.push(data);
     });
 
@@ -28,7 +26,7 @@ const TwoDAboutPage = ({data} : any) => {
         `I am Dennis, 25 years old recent graduate from Kajaani University of Applied Sciences, Finland.
         How I ended up pursuing a career in IT, is probably an easy guess after looking at the picture below of me when I was around five years old.
         I have been interested in computers and gadgets since a little child and I have fond memories of happiness that technology has brought me. 
-        Some of my leisure activities are travelling, playing guitar, playing video games and eating good food. Below you can see some pictures of my life.`}
+        Some of my leisure activities are travelling, playing guitar, playing video games and eating good food. Below you can see some of my pictures.`}
       listObjects={[{name:'Choose version', linkTo: '/'},{name:'Home', linkTo: '/2DHome/'},{name:'Projects', linkTo: '/projects/'}]}
       children={
         <>

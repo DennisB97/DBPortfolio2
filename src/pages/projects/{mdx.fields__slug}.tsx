@@ -13,7 +13,7 @@ import { ImageObjects, ImageObject } from "../../interfaces/picturedata.interfac
 
 // The shortcodes are components that are forwarded to the markdown files
 const shortcodes = { Link, GradualText,AsciiText,VideoFrame,
-  p: (props : any)  => <p {...props} style={{color: "white", fontFamily: "Roboto Slab"}} />
+  p: (props : any)  => <p {...props} style={{color: "white", fontFamily: "Roboto Slab", fontSize: "20px"}} />
 } 
 
 

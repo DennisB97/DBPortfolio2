@@ -1,45 +1,60 @@
-import React from "react";
-import CategoryTab from "./CategoryTab";
-import * as styles from "../../styles/categorybar.module.css";
+import React from 'react';
+import CategoryTab from './CategoryTab';
+import * as styles from '../../styles/categorybar.module.css';
+import { graphql, useStaticQuery } from 'gatsby';
 
-/**
- * All possible categories to sort by of the projects as string enum
- */
-export enum ECategories
-{
-    All = "All",
-    Cplusplus = "C++",
-    CSharp = "C#",
-    JS = "JavaScript",
-    TS = "TypeScript",
-    Py = "Python",
-    Misc = "Misc"
+interface CategoryProps {
+  currentCategory: string;
+  setCategory(category: string): void;
 }
 
-
-type CategoryProps = {
-    currentCategory: ECategories;
-    setCategory(category : ECategories): void;
+interface MdxNode {
+  frontmatter: {
+    category: string[];
+  };
 }
-
 
 /**
  * This component renders all the categorytabs and gives them the appropriate props.
- * @param props takes in ECategory of the current selected category,and the set function to change the category.
- * Which are forwarded to the tab components.
+ * @param currentCategory takes in string name of the current selected category.
+ * @param setCategory takes in function that sets new category selected.
  */
-export const CategoryBar = (props : CategoryProps) => {
+export const CategoryBar = ({
+  currentCategory,
+  setCategory,
+}: CategoryProps) => {
+  // Queries all the categories from the mdx pages.
+  const data = useStaticQuery(graphql`
+    query {
+      allMdx {
+        nodes {
+          frontmatter {
+            category
+          }
+        }
+      }
+    }
+  `);
 
-return(
+  var categories: string[] = [];
+  data.allMdx.nodes.forEach((node: MdxNode) => {
+    node.frontmatter.category.forEach((category: string) => {
+      if (!categories.includes(category)) {
+        categories.push(category);
+      }
+    });
+  });
+  categories.sort();
+
+  return (
     <div className={styles.categoryScrollDiv}>
-    <CategoryTab categoryType={ECategories.All} currentCategory={props.currentCategory} setCategory={props.setCategory}></CategoryTab>
-    <CategoryTab categoryType={ECategories.CSharp} currentCategory={props.currentCategory} setCategory={props.setCategory}></CategoryTab>
-    <CategoryTab categoryType={ECategories.Cplusplus} currentCategory={props.currentCategory} setCategory={props.setCategory}></CategoryTab>
-    <CategoryTab categoryType={ECategories.JS} currentCategory={props.currentCategory} setCategory={props.setCategory}></CategoryTab>
-    <CategoryTab categoryType={ECategories.TS} currentCategory={props.currentCategory} setCategory={props.setCategory}></CategoryTab>
-    <CategoryTab categoryType={ECategories.Py} currentCategory={props.currentCategory} setCategory={props.setCategory}></CategoryTab>
-    <CategoryTab categoryType={ECategories.Misc} currentCategory={props.currentCategory} setCategory={props.setCategory}></CategoryTab>
+      {categories.map((category: string) => (
+        <CategoryTab
+          categoryType={category}
+          currentCategory={currentCategory}
+          setCategory={setCategory}
+        ></CategoryTab>
+      ))}
     </div>
-    )
-}
-
+  );
+};

@@ -1,44 +1,38 @@
-
-.categoryScrollDiv{
-    display: flex;
-    margin: 0;
-    padding: 0;
-    flex-direction: row;
-    width: 100%;
-    overflow-x: auto;
-    justify-content: flex-start;
-    align-items: flex-end;
-    scrollbar-width: thin;
-
+.categoryScrollDiv {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  flex-direction: row;
+  width: 95%;
+  overflow-x: auto;
+  justify-content: flex-start;
+  align-items: flex-end;
+  scrollbar-width: thin;
 }
 
-
-.categoryTab{
-    width: 6rem;
-    height: 4rem;
-    background-color: transparent;
-    color: white;
-    margin-left: 15px;
-    flex-shrink: 0;
-    border: 3px dashed white;
+.categoryTab {
+  width: 6rem;
+  height: 4rem;
+  background-color: transparent;
+  color: white;
+  margin-left: 15px;
+  flex-shrink: 0;
+  border: 3px dashed white;
 }
 
-.categoryTab:hover{
-border: 3px dashed grey;
-cursor: pointer;
-color: #0d6efd;
-
+.categoryTab:hover {
+  border: 3px dashed grey;
+  cursor: pointer;
+  color: #0d6efd;
 }
 
-
-.categoryTabActivated{
-    width: 6.5rem;
-    height: 4.5rem;
-    background-color: transparent;
-    color: white;
-    margin-left: 15px;
-    flex-shrink: 0;
-    border: 4px dashed white;
-    font-weight: bold;
-
+.categoryTabActivated {
+  width: 6.5rem;
+  height: 4.5rem;
+  background-color: transparent;
+  color: white;
+  margin-left: 15px;
+  flex-shrink: 0;
+  border: 4px dashed white;
+  font-weight: bold;
 }

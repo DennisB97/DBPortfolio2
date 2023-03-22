@@ -1,97 +1,101 @@
 /* Copyright 2022 Dennis Baeckstroem  */
 
 @keyframes pulse {
-    0% { box-shadow:0 0 8px #06a118, inset 0 0 8px #06a118; }
-    50% { box-shadow:0 0 16px #06a118, inset 0 0 14px #06a118; }
-    100% { box-shadow:0 0 8px #06a118, inset 0 0 8px #06a118; }
-  }
-
-.rootDiv{
-    height: 100%;
-    width: 100%;
-    position: relative;
-}
-
-.outerBody{
-    position: relative;
-    height:100%;
-    width: 100%;
-    overflow: hidden;
-    margin: 0px;
-    padding-top: 2.92em;
-    padding-left: 1.75em;
-    padding-right: 1.85em;
-    padding-bottom: 3.075em;
-    display: flex;
-    flex-direction: column;
-    background-color: black;
-    box-sizing: border-box;
-    z-index: 998;
-}
-
-.innerBody{
-    position: relative;
-    height:100%;
-    overflow: hidden;
-    margin: 0px;
-    padding: 0em;
-    display: flex;
-    flex-direction: column;
-    background-color: black;
-    box-sizing: border-box;
-}
-
-.mainBorder{
-height: 100%;
-width:100%;
-background-color:transparent;
-border: 150px solid transparent;
-overflow:hidden;
-padding:0px;
-margin:0px;
-border-image: url(../images/CRT.webp) 35% stretch;
-box-sizing: border-box;
-position: fixed;
-z-index: 1000;
-pointer-events: none;
-}
-
-.mainBorderDetail{
-    position: fixed;
-    background-color:#06a118;
-    bottom: 1.45em;
-    right: 2.68em;
-    width:3px;
-    height:3px;
-    border-radius:50px;
+  0% {
     box-shadow: 0 0 8px #06a118, inset 0 0 8px #06a118;
-    -webkit-animation: pulse 2s linear 1s infinite;
-    animation: pulse 2s linear 1s infinite;
-    box-sizing: border-box;
+  }
+  50% {
+    box-shadow: 0 0 16px #06a118, inset 0 0 14px #06a118;
+  }
+  100% {
+    box-shadow: 0 0 8px #06a118, inset 0 0 8px #06a118;
+  }
 }
 
-.glassLayer{
-    height: 100%;
-    width:100%;
-    padding:0px;
-    margin:0px;
-    box-sizing: border-box;
-    position: fixed;
-    overflow:hidden;
-    z-index: 999;
-    background: rgba(255, 255, 255, 0.14);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(0.1px);
-    -webkit-backdrop-filter: blur(0.1px);
-    backdrop-filter: blur(0.1px);
-    pointer-events: none;
+.rootDiv {
+  height: 100%;
+  width: 100%;
+  position: relative;
 }
 
-@media (max-height: 300px)
-{
-    .mainBorderDetail{
-        display: none;
-    }
+.outerBody {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin: 0px;
+  padding-top: 2.92em;
+  padding-left: 1.75em;
+  padding-right: 1.85em;
+  padding-bottom: 3.075em;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  box-sizing: border-box;
+  z-index: 998;
+}
 
+.innerBody {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0em;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  box-sizing: border-box;
+}
+
+.mainBorder {
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  border: 150px solid transparent;
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px;
+  border-image: url(../images/CRT.webp) 35% stretch;
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.mainBorderDetail {
+  position: fixed;
+  background-color: #06a118;
+  bottom: 1.45em;
+  right: 2.68em;
+  width: 3px;
+  height: 3px;
+  border-radius: 50px;
+  box-shadow: 0 0 8px #06a118, inset 0 0 8px #06a118;
+  -webkit-animation: pulse 2s linear 1s infinite;
+  animation: pulse 2s linear 1s infinite;
+  box-sizing: border-box;
+}
+
+.glassLayer {
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  position: fixed;
+  overflow: hidden;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0.1px);
+  -webkit-backdrop-filter: blur(0.1px);
+  backdrop-filter: blur(0.1px);
+  pointer-events: none;
+}
+
+@media (max-height: 300px) {
+  .mainBorderDetail {
+    display: none;
+  }
 }

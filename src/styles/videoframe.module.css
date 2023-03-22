@@ -1,13 +1,9 @@
-
-.videoFrame{
-    height: 25rem;
+.videoFrame {
+  height: 25rem;
 }
 
-
-@media (max-width: 720px)
-{
-    .videoFrame{
-        height: 10rem;
-    }
-    
+@media (max-width: 720px) {
+  .videoFrame {
+    height: 10rem;
+  }
 }

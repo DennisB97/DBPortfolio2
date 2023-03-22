@@ -1,76 +1,86 @@
-import React from "react";
-import {useEffect,useRef} from "react";
-import {Engine,Scene, EngineOptions, SceneOptions} from "babylonjs";
-import styled from "styled-components"
+import React from 'react';
+import { useEffect, useRef } from 'react';
+import { Engine, Scene, EngineOptions, SceneOptions } from 'babylonjs';
+import styled from 'styled-components';
 
 type functionCalls = {
-antialias?: boolean;
-adaptToDeviceRatio?: boolean;
-engineOptions?: EngineOptions;
-onRender: (scene: Scene) => void;
-onSceneReady: (scene: Scene) => void;
-
-}
+  antialias?: boolean;
+  adaptToDeviceRatio?: boolean;
+  engineOptions?: EngineOptions;
+  onRender: (scene: Scene) => void;
+  onSceneReady: (scene: Scene) => void;
+};
 
 const StyledCanvas = styled.canvas`
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow:hidden;
-`
-
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+`;
 
 /**
  * Just rendering a  cube now, work in progress.
  */
-export default ({antialias,adaptToDeviceRatio,engineOptions,onRender,onSceneReady,...rest} : functionCalls,sceneOptions : SceneOptions) => {
-    const reactCanvas = useRef(null);
+export default (
+  {
+    antialias,
+    adaptToDeviceRatio,
+    engineOptions,
+    onRender,
+    onSceneReady,
+    ...rest
+  }: functionCalls,
+  sceneOptions: SceneOptions
+) => {
+  const reactCanvas = useRef(null);
 
-    useEffect(() => 
-    {
-        const {current: canvas } = reactCanvas;
+  useEffect(() => {
+    const { current: canvas } = reactCanvas;
 
-        if(!canvas) return;
+    if (!canvas) return;
 
-        const engine = new Engine(canvas,antialias,engineOptions,adaptToDeviceRatio);
-        const scene = new Scene(engine,sceneOptions);
+    const engine = new Engine(
+      canvas,
+      antialias,
+      engineOptions,
+      adaptToDeviceRatio
+    );
+    const scene = new Scene(engine, sceneOptions);
 
-        if(scene.isReady())
-        {
-            onSceneReady(scene);
-        }
-        else 
-        {
-            scene.onReadyObservable.addOnce((scene) => onSceneReady(scene));
-        }
+    if (scene.isReady()) {
+      onSceneReady(scene);
+    } else {
+      scene.onReadyObservable.addOnce((scene) => onSceneReady(scene));
+    }
 
-        engine.runRenderLoop(() => 
-        {
-            onRender(scene);
-            scene.render();
-        });
+    engine.runRenderLoop(() => {
+      onRender(scene);
+      scene.render();
+    });
 
-        const resize = () => 
-        {
-            scene.getEngine().resize();
-        };
+    const resize = () => {
+      scene.getEngine().resize();
+    };
 
-        if(window) 
-        {
-            window.addEventListener("resize",resize);
-        }
+    if (window) {
+      window.addEventListener('resize', resize);
+    }
 
-        return () => 
-        {
-            scene.getEngine().dispose();
+    return () => {
+      scene.getEngine().dispose();
 
-            if(window)
-            {
-                window.removeEventListener("resize",resize);
-            }
-        };
+      if (window) {
+        window.removeEventListener('resize', resize);
+      }
+    };
+  }, [
+    antialias,
+    engineOptions,
+    adaptToDeviceRatio,
+    sceneOptions,
+    onRender,
+    onSceneReady,
+  ]);
 
-    },[antialias,engineOptions,adaptToDeviceRatio,sceneOptions,onRender,onSceneReady]);
-
-    return <StyledCanvas className={StyledCanvas} ref={reactCanvas} {...rest} />;
-}
+  return <StyledCanvas className={StyledCanvas} ref={reactCanvas} {...rest} />;
+};

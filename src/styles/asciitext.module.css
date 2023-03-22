@@ -1,47 +1,41 @@
-
-.ascii{
-    color: white;
-    font-size: 12px;
+.ascii {
+  color: white;
+  font-size: 12px;
 }
 
-
-.asciiAnimated{
-    color: white;
-    transform-origin: 100% 50%;
-    font-size: 12px;
-    max-width: 0px;
-    animation: open 2s linear 0s 1;
-    animation-fill-mode: forwards;
-    overflow: hidden;
+.asciiAnimated {
+  color: white;
+  transform-origin: 100% 50%;
+  font-size: 12px;
+  max-width: 0px;
+  animation: open 2s linear 0s 1;
+  animation-fill-mode: forwards;
+  overflow: hidden;
 }
-
-
 
 @keyframes open {
-    from{
-     max-width: 0;
-    }
- 
-    to{
-     max-width: 1000px;
-    }
-   }
+  from {
+    max-width: 0;
+  }
 
+  to {
+    max-width: 1000px;
+  }
+}
 
-   @media (max-width: 640px){
-
-    .ascii,.asciiAnimated{
-        font-size: 5px;
-    }
-    
+@media (max-width: 640px) {
+  .ascii,
+  .asciiAnimated {
+    font-size: 5px;
+  }
 }
 
 @keyframes openDetail {
-    from{
-        max-width: 0;
-       }
-    
-       to{
-        max-width: 1000px;
-       }
+  from {
+    max-width: 0;
   }
+
+  to {
+    max-width: 1000px;
+  }
+}

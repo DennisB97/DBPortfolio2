@@ -1,30 +1,29 @@
-import React from "react";
-import * as Styles from "../../styles/videoframe.module.css";
+import React from 'react';
+import * as Styles from '../../styles/videoframe.module.css';
 
-type videoFrameProps = {
-    videoSrcURL: string;
-    videoTitle: string;
-}
+interface videoFrameProps {
+  videoSrcURL: string;
+  videoTitle: string;
+};
 
 /**
  * VideoFrame component renders an iframe that will be used for the project pages to show youtube clips.
- * @param props takes in the video's src URL and a title
+ * @param videoSrcURL takes in the video's src URL.
+ * @param videoTitle takes in the video's title.
  */
-const VideoFrame = (props : videoFrameProps) => {
-
-    return(
-        <div className={Styles.videoFrame}>
-        <iframe style={{border: "0px"}}
-        src={props.videoSrcURL}
-        title={props.videoTitle}
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+const VideoFrame = ({videoSrcURL,videoTitle}: videoFrameProps) => {
+  return (
+    <div className={Styles.videoFrame}>
+      <iframe
+        style={{ border: '0px' }}
+        src={videoSrcURL}
+        title={videoTitle}
         allowFullScreen
         width="100%"
         height="100%"
-        />
-        </div>
-    )
-
-}
+      />
+    </div>
+  );
+};
 
 export default VideoFrame;

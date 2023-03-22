@@ -1,55 +1,56 @@
-
-.rootDiv{
-padding: 0;
-margin: 0;
-display: flex;
-flex-direction: column;
-overflow: hidden;
-
+.rootDiv {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-.innerDiv{
-    position: absolute;
-    top: 5rem;
-    padding-left: 3rem;
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    max-height: 90%;
-    overflow-x: hidden;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    
+.innerDiv {
+  position: absolute;
+  top: 5rem;
+  padding-left: 3rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  max-height: 90%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
 
-.contentDiv{
+.contentDiv {
   max-width: 50rem;
+  min-width: 50rem;
 }
 
-.contentText
-{
-    color: white;
-    font-size: 18px;
+.contentText {
+  color: white;
+  font-size: 18px;
 }
 
-@media (max-width: 640px){
+@media (max-width: 640px) {
+  .contentDiv {
+    min-width: auto;
+  }
 
-    .innerDiv{
-        top: 10%;
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-        max-width: 100%;
-        max-height: 80%;        
-    }
+  .innerDiv {
+    top: 10%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    max-width: 100%;
+    max-height: 80%;
+  }
 }
 
-@media (min-width: 1920px){
-
-.innerDiv{
-padding-left: 30rem;
-
+@media (min-width: 1920px) {
+  .innerDiv {
+    padding-left: 30rem;
+  }
 }
 
+@media (min-width: 2560px) {
+  .innerDiv {
+    padding-left: 70rem;
+  }
 }
-
-

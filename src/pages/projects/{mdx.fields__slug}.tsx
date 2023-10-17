@@ -10,6 +10,7 @@ import AsciiText from '../../Components/2D/AsciiText';
 import VideoFrame from '../../Components/2D/VideoFrame';
 import PictureCarousel from '../../Components/2D/PictureCarousel';
 import { ImageObject,MdxImageNode } from '../../interfaces/picturedata.interface';
+import * as MarkDownStyles from '../../styles/markdown.module.css';
 
 // The shortcodes are components that are forwarded to the markdown files
 const shortcodes = {
@@ -20,11 +21,18 @@ const shortcodes = {
   p: (props: any) => (
     <p
       {...props}
-      style={{ color: 'white', fontFamily: 'Roboto Slab', fontSize: '20px', maxWidth: '95%' }}
+      className={MarkDownStyles.markDownDefault}
     />
   ),
-};
 
+  ul: (props: any) => (
+    <ul
+      {...props}
+      className={MarkDownStyles.markDownList}
+    />
+  )
+
+};
 
 
 /**
